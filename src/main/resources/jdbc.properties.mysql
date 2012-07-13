@@ -1,0 +1,11 @@
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://127.0.0.1:3306/quartz_development
+jdbc.username=quartz
+jdbc.password=quartz
+jdbc.schema=quartz_development
+jdbc.acquireIncrement=5
+jdbc.minPoolSize=5
+jdbc.maxPoolSize=50
+jdbc.maxIdleTime=10
+jdbc.preferredTestQuery=select 1
+

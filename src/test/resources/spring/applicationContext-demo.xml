@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+        <property name="configLocation" value="classpath:quartz.properties" />
+        <property name="overwriteExistingJobs" value="true" />
+		<property name="dataSource" ref="dataSource"/>
+		<property name="transactionManager" ref="transactionManager"/>
+        <property name="triggers">
+            <list>
+                <ref bean="testTrigger" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="testJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.bulain.quartz.demo.QuartzJob" />
+        <property name="jobDataAsMap">
+            <props>
+                <prop key="jkey">jvalue</prop>
+                <prop key="jInt">1</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="testTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="testJobDetail"/>
+        <property name="cronExpression" value="0/5 * * * * ?"/>
+        <property name="jobDataAsMap">
+            <props>
+                <prop key="tkey">tvalue</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

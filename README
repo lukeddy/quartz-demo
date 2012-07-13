@@ -1,0 +1,40 @@
+This is a spring-mvc demo.
+use the next technology: spring, quartz
+
+For run test, please run the next command:
+1, create mysql/oracle database
+2, change next file depends on your database type.
+   src/test/resources/jdbc.properties.mysql
+   src/test/resources/jdbc.properties.oracle
+   src/test/resources/quartz.properties.mysql
+   src/test/resources/quartz.properties.oracle
+3, run the next command depends on your database type.
+   mvn test 
+   mvn test -Poracle
+    
+For run development, please run the next command:
+1, create mysql/oracle database
+2, change next file depends on your database type.
+   src/main/resources/jdbc.properties.mysql
+   src/main/resources/jdbc.properties.oracle
+   src/main/resources/quartz.properties.mysql
+   src/main/resources/quartz.properties.oracle
+2, run the next command depends on your database type.
+   mvn migration:up -Dmigration.env=development
+   mvn migration:up -Dmigration.env=development -Poracle
+3, mvn clean package
+
+Useful information for migration plugin.
+    migration:up 
+    migration:down
+    -Dmigration.env=development 
+    -Dmigration.path=src/migration/mysql
+    -Dmigration.down.steps=2
+    -Dmigration.up.steps=2
+
+The next is I need to research.
+1. basic quartz
+2. jdbc quartz
+3. datasource quartz  
+4. cluster quartz
+

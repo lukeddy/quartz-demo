@@ -1,0 +1,10 @@
+jdbc.driverClassName=oracle.jdbc.OracleDriver
+jdbc.url=jdbc:oracle:thin:@192.168.0.190:1521:orcl
+jdbc.username=quartz_development
+jdbc.password=quartz
+jdbc.schema=quartz_development
+jdbc.acquireIncrement=5
+jdbc.minPoolSize=5
+jdbc.maxPoolSize=50
+jdbc.maxIdleTime=10
+jdbc.preferredTestQuery=select 1
