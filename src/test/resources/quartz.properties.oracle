@@ -4,7 +4,7 @@
 #============================================================================
 
 org.quartz.scheduler.instanceName = scheduler
-org.quartz.scheduler.instanceId = instance01
+org.quartz.scheduler.instanceId = AUTO
 
 org.quartz.scheduler.skipUpdateCheck = true
 
@@ -63,7 +63,7 @@ org.quartz.dataSource.myDS.URL = jdbc:oracle:thin:@localhost:1521:orcl
 org.quartz.dataSource.myDS.user = quartz_test
 org.quartz.dataSource.myDS.password = quartz
 org.quartz.dataSource.myDS.maxConnections = 5
-org.quartz.dataSource.myDS.validationQuery = select 1
+org.quartz.dataSource.myDS.validationQuery = select 1 from dual
 
 #============================================================================
 # Configure Plugins 

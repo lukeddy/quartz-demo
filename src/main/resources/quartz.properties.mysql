@@ -4,7 +4,7 @@
 #============================================================================
 
 org.quartz.scheduler.instanceName = scheduler
-org.quartz.scheduler.instanceId = instance01
+org.quartz.scheduler.instanceId = AUTO
 
 org.quartz.scheduler.skipUpdateCheck = true
 
