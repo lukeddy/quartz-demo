@@ -4,7 +4,7 @@
 
     <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
         <property name="configLocation" value="classpath:quartz.properties" />
-        <property name="overwriteExistingJobs" value="true" />
+        <property name="overwriteExistingJobs" value="false" />
 		<property name="dataSource" ref="dataSource"/>
 		<property name="transactionManager" ref="transactionManager"/>
         <property name="triggers">

@@ -28,13 +28,15 @@ org.quartz.threadPool.threadPriority = 5
 #============================================================================
 
 org.quartz.jobStore.misfireThreshold = 60000
-#
+
 org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
 org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.oracle.OracleDelegate
 org.quartz.jobStore.useProperties=false
 org.quartz.jobStore.dataSource=myDS
 org.quartz.jobStore.tablePrefix=QRTZ_
-org.quartz.jobStore.isClustered=false
+
+org.quartz.jobStore.isClustered = true
+org.quartz.jobStore.clusterCheckinInterval = 20000
 
 #============================================================================
 # Other Example Delegates
@@ -67,8 +69,9 @@ org.quartz.dataSource.myDS.validationQuery = select 1
 # Configure Plugins 
 #============================================================================
 
-#org.quartz.plugin.shutdownHook.class = org.quartz.plugins.management.ShutdownHookPlugin
-#org.quartz.plugin.shutdownHook.cleanShutdown = true
+org.quartz.plugin.shutdownHook.class = org.quartz.plugins.management.ShutdownHookPlugin
+org.quartz.plugin.shutdownHook.cleanShutdown = true
 
 
-#org.quartz.plugin.triggHistory.class = org.quartz.plugins.history.LoggingJobHistoryPlugin
+org.quartz.plugin.triggerHistory.class = org.quartz.plugins.history.LoggingTriggerHistoryPlugin
+org.quartz.plugin.jobHistory.class = org.quartz.plugins.history.LoggingJobHistoryPlugin

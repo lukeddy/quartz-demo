@@ -9,17 +9,15 @@ import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
 
-public class QuartzRunTest {
+public class QuartzRunDemo {
     private static final Logger logger = LoggerFactory.getLogger(QuartzSpringTest.class);
 
     private static Scheduler scheduler;
 
     @BeforeClass
     public static void setUpClass() throws SchedulerException {
-        ClassPathResource resource = new ClassPathResource("quartz.properties");
-        SchedulerFactory sf = new StdSchedulerFactory(resource.getPath());
+        SchedulerFactory sf = new StdSchedulerFactory();
         scheduler = sf.getScheduler();
         scheduler.start();
     }

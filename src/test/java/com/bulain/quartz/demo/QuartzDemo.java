@@ -15,15 +15,13 @@ import org.quartz.SchedulerFactory;
 import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.spi.MutableTrigger;
-import org.springframework.core.io.ClassPathResource;
 
-public class QuartzTest {
+public class QuartzDemo {
     private static Scheduler scheduler;
 
     @BeforeClass
     public static void setUpClass() throws SchedulerException {
-        ClassPathResource resource = new ClassPathResource("quartz.properties");
-        SchedulerFactory sf = new StdSchedulerFactory(resource.getPath());
+        SchedulerFactory sf = new StdSchedulerFactory();
         scheduler = sf.getScheduler();
         scheduler.start();
     }
